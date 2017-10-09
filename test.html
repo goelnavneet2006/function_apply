@@ -1,0 +1,18 @@
+<script>
+  Function.prototype.myApply = function(thisRef, args) {
+    var funcToApply = this;
+    var boundFunc = funcToApply.bind(thisRef);
+    boundFunc(...args);
+  }
+
+  function testFunc(a, b, c) {
+    console.log(this, a, b, c);
+  }
+
+  var thisObj = {
+    a: 1
+  };
+
+  testFunc.myApply(thisObj, [1,2,3]);
+
+</script>
